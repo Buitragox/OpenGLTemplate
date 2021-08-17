@@ -4,6 +4,12 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TemplateProject", "TemplateProject.vcxproj", "{9B0AA7AC-D20A-47E9-B7D8-82AFD63BDD92}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{38FBBB26-7A26-4594-8239-2AAEB0C9A079}"
+	ProjectSection(SolutionItems) = preProject
+		Classes\Square.cpp = Classes\Square.cpp
+		Classes\Square.h = Classes\Square.h
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32

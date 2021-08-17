@@ -9,6 +9,12 @@
 #include <iostream>
 #include "glsl.h"
 #include <time.h>
+#include "Classes/tree.h"
+#include "Classes/Square.h"
+#include "Classes/Table.h"
+#include "Classes/Circle.h"
+
+
 
 //-----------------------------------------------------------------------------
 
@@ -22,6 +28,10 @@ protected:
    clock_t time0,time1;
    float timer010;  // timer counting 0->1->0
    bool bUp;        // flag if counting up or down.
+   Tree Mango;
+   Square Cuadrado;
+   Table Mesa;
+   Circle Circulo;
 
 
 public:
@@ -29,6 +39,9 @@ public:
 
     virtual void OnRender(void)
     {
+        Mango = Tree();
+        Cuadrado = Square();
+        Mesa = Table();
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         //timer010 = 0.09; //for screenshot!
@@ -37,60 +50,11 @@ public:
         glPushMatrix();
 
         glTranslatef(0.0, 0.0, -7.0); //Quitar zoom
-        
-        glPushMatrix(); // Tetera Izquierda
-        glTranslatef(-3.0, 0.0, 0.0);
-        glutSolidTeapot(0.5);
-        glPopMatrix();
 
-        glPushMatrix(); // Tetera Abajo
-        glTranslatef(0.0, -3.0, 0.0);
-        glutSolidTeapot(0.5);
-        glPopMatrix();
-
-        glPushMatrix(); // Tetera Derecha
-        glTranslatef(3.0, 0.0, 0.0);
-        glutSolidTeapot(0.5);
-        glPopMatrix();
-
-        glPushMatrix(); //Triángulo Superior
-        glTranslatef(0.0, 3.5, 0.0);
-        glBegin(GL_TRIANGLES);
-        glVertex3f(0.0, 1.299, 0.0);
-        glVertex3f(1.5, -1.299, 0.0);
-        glVertex3f(-1.5, -1.299, 0.0);
-        glEnd();
-        glPopMatrix();
-
-        glPushMatrix(); //Cuadrado superior derecha
-        glTranslatef(3.0, 3.0, 0.0);
-        glRotatef(45, 0.0, 0.0, 1.0);
-        glutSolidCube(0.5); 
-        glPopMatrix();
-        
-        glPushMatrix(); //Cuadrado superior izquierda
-        glTranslatef(-2.6, 1.5, 0.0);
-        glRotatef(-30, 0.0, 0.0, 1.0);
-        glutSolidCube(0.5);
-        glPopMatrix();
-
-        //Adicionales
-
-        glPushMatrix(); // Esfera central
-        glutWireSphere(0.2, 10, 10);
-        glPopMatrix();
-
-        glPushMatrix(); //Circulo inferior izquierda
-        glTranslatef(-3.0, -3.0, 0.0);
-        glBegin(GL_LINE_LOOP);
-        for (int i = 0; i <= 100; i++) {
-            glVertex2f(
-                (0.5 * cos(i * 2 * 3.1416 / 100)),
-                (0.5 * sin(i * 2 * 3.1416 / 100))
-            );
-        }
-        glEnd();
-        glPopMatrix();
+        Mango.DrawTree(-3.0, 0.0, 0.0);
+        Cuadrado.Draw(0.0, 3.0, 0.0, 1, 45);
+        Mesa.Draw(3.0, 0.0, 0.0);
+        Circulo.Draw(0.0, 0.0, 0.0, 0.5);
 
         glPopMatrix();
         if (shader) shader->end();

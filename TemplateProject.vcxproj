@@ -89,6 +89,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\Circle.h" />
+    <ClInclude Include="Classes\Square.h" />
+    <ClInclude Include="Classes\Table.h" />
+    <ClInclude Include="Classes\tree.h" />
     <ClInclude Include="cwc\include\glApplication.h" />
     <ClInclude Include="cwc\include\glsl.h" />
     <ClInclude Include="cwc\include\glutwindow.h" />
@@ -104,6 +108,10 @@
     <ClInclude Include="glew\include\Gl\wglew.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\Circle.cpp" />
+    <ClCompile Include="Classes\Square.cpp" />
+    <ClCompile Include="Classes\Table.cpp" />
+    <ClCompile Include="Classes\tree.cpp" />
     <ClCompile Include="cwc\source\glApplication.cpp" />
     <ClCompile Include="cwc\source\glsl.cpp" />
     <ClCompile Include="cwc\source\glutwindow.cpp" />
